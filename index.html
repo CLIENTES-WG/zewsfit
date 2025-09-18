@@ -608,6 +608,135 @@
             height: auto;
             object-fit: cover;
         }
+
+
+        /* --- Prevent hero/carousel overflow --- */
+        .carousel .track {
+            width: 100%;
+            will-change: transform;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            padding: 0 !important;
+        }
+
+        .hero {
+            overflow: clip;
+        }
+
+        /* avoids tiny subpixel overflow on mobile */
+
+
+        /* ===== Header: logo central grande e botões abaixo ===== */
+        .nav {
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0 12px;
+        }
+
+        .brand {
+            order: 0;
+        }
+
+        .cta {
+            order: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cta .btn {
+            padding: 12px 16px;
+            font-size: 1rem;
+        }
+
+        /* Logo maior no meio */
+        .logo {
+            width: 130px;
+            height: 130px;
+        }
+
+        .logo img {
+            width: 114px;
+            height: 114px;
+        }
+
+        @media (min-width: 900px) {
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .logo img {
+                width: 132px;
+                height: 132px;
+            }
+        }
+
+
+        /* ===== Make centered header ONLY on mobile; keep original on desktop ===== */
+        @media (max-width: 899px) {
+            .nav {
+                flex-direction: column;
+                justify-content: center !important;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0 12px;
+            }
+
+            .brand {
+                order: 0;
+            }
+
+            .cta {
+                order: 1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .cta .btn {
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+
+            /* Bigger logo on mobile */
+            .logo {
+                width: 130px;
+                height: 130px;
+            }
+
+            .logo img {
+                width: 114px;
+                height: 114px;
+            }
+        }
+
+        /* Explicitly reset desktop to original look/sizes */
+        @media (min-width: 900px) {
+            .nav {
+                flex-direction: row;
+            }
+
+            .logo {
+                width: 96px;
+                height: 96px;
+            }
+
+            .logo img {
+                width: 82px;
+                height: 82px;
+            }
+
+            .cta {
+                width: auto;
+            }
+        }
     </style>
 </head>
 
@@ -812,7 +941,7 @@
         // aplica fundos a partir de data-bg
         slides.forEach((s) => {
             const bg = s.getAttribute('data-bg');
-            if (bg) { s.style.setProperty('--bg', `url('${bg}')`); s.style.setProperty('backgroundImage', ''); s.querySelector('h3').setAttribute('aria-live', 'polite'); s.style.position = 'relative'; s.style.color = '#fff'; s.style.textAlign = 'center'; s.style.padding = '0 12px'; s.style.zIndex = 2; s.style.isolation = 'isolate'; s.style.setProperty('--x', '1'); s.style.setProperty('--y', '1'); s.style.setProperty('--z', '1'); s.style.setProperty('--a', '1'); s.style.setProperty('--b', '1'); s.style.setProperty('--c', '1'); }
+            if (bg) { s.style.setProperty('--bg', `url('${bg}')`); s.style.setProperty('backgroundImage', ''); s.querySelector('h3').setAttribute('aria-live', 'polite'); s.style.position = 'relative'; s.style.color = '#fff'; s.style.textAlign = 'center'; s.style.zIndex = 2; s.style.isolation = 'isolate'; s.style.setProperty('--x', '1'); s.style.setProperty('--y', '1'); s.style.setProperty('--z', '1'); s.style.setProperty('--a', '1'); s.style.setProperty('--b', '1'); s.style.setProperty('--c', '1'); }
             // seta no pseudo-elemento
             s.style.setProperty('--bg-url', bg || '');
             s.style.setProperty('background', 'transparent');
