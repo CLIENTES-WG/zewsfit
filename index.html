@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Academia ZewsFit — Link na Bio</title>
+    <title>Academia ZewsFit </title>
     <meta name="theme-color" content="#ff7a00">
     <style>
         :root {
@@ -14,7 +14,7 @@
             --muted: #9aa1aa;
             --accent: #ff7a00;
             --radius: 18px;
-            --shadow: 0 10px 30px rgba(0, 0, 0, .4);
+            --shadow: 0 10px 30px rgba(0, 0, 0, .4)
         }
 
         * {
@@ -49,49 +49,54 @@
             z-index: 50;
             backdrop-filter: saturate(140%) blur(10px);
             background: linear-gradient(to bottom, rgba(0, 0, 0, .9), rgba(0, 0, 0, .4));
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
         }
 
         .nav {
             display: flex;
             align-items: center;
-            gap: 14px;
-            justify-content: space-between
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 6px 0
+        }
+
+        @media(min-width:900px) {
+            .nav {
+                justify-content: space-between
+            }
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px
+            justify-content: center
         }
 
         .logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 96px;
+            height: 96px;
+            border-radius: 16px;
             display: grid;
             place-items: center;
             background: #000;
-            border: 1px solid rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .12);
             box-shadow: var(--shadow)
         }
 
         .logo img {
-            width: 34px;
-            height: 34px;
+            width: 82px;
+            height: 82px;
             object-fit: contain
         }
 
-        .title {
-            font-weight: 900;
-            color: var(--accent);
-            letter-spacing: .6px
-        }
+        /* remove title text (o nome já está na logo) */
 
         .cta {
             display: flex;
             gap: 10px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            justify-content: center
         }
 
         .btn {
@@ -199,18 +204,18 @@
             font-size: 1.1rem
         }
 
-        /* Carousel */
+        /* Carousel with background images + middle overlay image */
         .carousel {
             position: relative;
             overflow: hidden;
             border-radius: var(--radius);
-            height: 240px;
+            height: 260px;
             border: 1px solid rgba(255, 255, 255, .08)
         }
 
         @media(min-width:900px) {
             .carousel {
-                height: 300px
+                height: 320px
             }
         }
 
@@ -224,12 +229,40 @@
             min-width: 100%;
             display: grid;
             place-items: center;
-            background: #0f1117
+            position: relative;
+            color: #fff
+        }
+
+        .slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(.55);
+            transition: transform .6s ease;
+            transform: scale(1.05)
         }
 
         .slide h3 {
             margin: 0;
-            font-size: clamp(22px, 3.6vw, 34px)
+            font-size: clamp(22px, 3.6vw, 34px);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, .6)
+        }
+
+        .carousel .mid-image {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: min(38vw, 220px);
+            height: auto;
+            z-index: 2;
+            opacity: .9;
+            pointer-events: none;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, .6))
         }
 
         .controls {
@@ -259,7 +292,8 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 6px
+            gap: 6px;
+            z-index: 3
         }
 
         .dot {
@@ -297,7 +331,7 @@
             margin: 0 0 6px
         }
 
-        /* Plans (collapsible section includes heading) */
+        /* Plans (collapsible) */
         #planos-section {
             overflow: hidden;
             max-height: 0;
@@ -401,7 +435,7 @@
             }
         }
 
-        /* Footer */
+        /* Footer - centered & bigger icons */
         footer {
             margin-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, .1);
@@ -410,30 +444,27 @@
 
         .footer-grid {
             display: grid;
-            gap: 16px;
+            gap: 12px;
+            place-items: center;
+            text-align: center;
             padding: 18px
-        }
-
-        @media(min-width:800px) {
-            .footer-grid {
-                grid-template-columns: 1fr auto
-            }
         }
 
         .social {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center
         }
 
         .social a {
             display: inline-grid;
             place-items: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             background: #101218;
-            border: 1px solid rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .12);
             transition: transform .15s ease
         }
 
@@ -442,8 +473,8 @@
         }
 
         .social img {
-            width: 22px;
-            height: 22px
+            width: 30px;
+            height: 30px
         }
 
         /* Reveal on scroll */
@@ -457,6 +488,19 @@
             opacity: 1;
             transform: translateY(0)
         }
+
+        /* Promo full-width image */
+        .promo {
+            margin: 40px 0
+        }
+
+        .promo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .45)
+        }
     </style>
 </head>
 
@@ -466,7 +510,6 @@
         <div class="container nav">
             <div class="brand">
                 <div class="logo"><img src="img/logo.png" alt="ZewsFit"></div>
-                <div class="title">ACADEMIA ZEWSFIT</div>
             </div>
             <div class="cta">
                 <a class="btn" href="#beneficios">Benefícios</a>
@@ -481,9 +524,7 @@
             <div class="hero-card">
                 <h1>Treine forte. Viva melhor.</h1>
                 <p class="lead">Metodologias atuais, equipe qualificada e um ambiente pensado para sua evolução. Clique
-                    em
-                    <b>VER PLANOS</b> e fale direto no WhatsApp.
-                </p>
+                    em <b>VER PLANOS</b> e fale direto no WhatsApp.</p>
                 <div class="badges">
                     <span class="badge">Musculação</span>
                     <span class="badge">Funcional</span>
@@ -495,17 +536,19 @@
                     <div class="stat"><strong>4.9★</strong> avaliações</div>
                 </div>
             </div>
+
             <div class="reveal">
-                <!-- Carousel -->
+                <!-- Carousel REVEAL com imagens por trás do texto + imagem central customizável -->
                 <div class="carousel" id="carousel">
+                   
                     <div class="track">
-                        <div class="slide">
+                        <div class="slide" data-bg="https://invexo.com.br/blog/wp-content/uploads/2022/12/smartfit-academias-na-barra-da-tijuca-rio-de-janeiro-1024x576.jpg.webp">
                             <h3>Estrutura moderna e completa.</h3>
                         </div>
-                        <div class="slide">
+                        <div class="slide" data-bg="https://barcelonasuperficies.com.br/wp-content/uploads/2018/10/o-que-fazer-para-garantir-um-bom-relacionamento-com-o-aluno-da-academia.jpg">
                             <h3>Acompanhamento profissional.</h3>
                         </div>
-                        <div class="slide">
+                        <div class="slide" data-bg="https://imgs.jusbr.com/publications/images/aa134116ac6e934ba40d05a4b5b759b6">
                             <h3>Resultados reais.</h3>
                         </div>
                     </div>
@@ -556,7 +599,7 @@
             </div>
         </section>
 
-        <!-- PLANOS (collapsible including heading) -->
+        <!-- PLANOS (colapsável) -->
         <section id="planos-section" class="section">
             <h2>Nossos Planos</h2>
             <div class="cards">
@@ -573,7 +616,6 @@
                         href="https://wa.me/5599999999999?text=Quero%20assinar%20o%20Plano%20Mensal%20Flex%20da%20ZewsFit">Assinar
                         no WhatsApp</a>
                 </div>
-
                 <div class="card">
                     <h3>Trimestral Performance</h3>
                     <div class="price">R$ 339<span style="font-size:.8em">/trimestre</span></div>
@@ -586,7 +628,6 @@
                         href="https://wa.me/5599999999999?text=Quero%20assinar%20o%20Plano%20Trimestral%20Performance%20da%20ZewsFit">Assinar
                         no WhatsApp</a>
                 </div>
-
                 <div class="card">
                     <span class="ribbon">Economize</span>
                     <h3>Annual Pro</h3>
@@ -598,30 +639,35 @@
                     </div>
                     <a class="btn btn--accent" target="_blank"
                         href="https://wa.me/5599999999999?text=Quero%20assinar%20o%20Plano%20Annual%20Pro%20da%20ZewsFit">Assinar
-                        no
-                        WhatsApp</a>
+                        no WhatsApp</a>
                 </div>
             </div>
         </section>
 
-        <!-- GALERIA AUTO-SCROLL -->
+        <!-- GALERIA AUTO-SCROLL (mantida) -->
         <section class="section reveal">
             <h2>Um pouco do nosso espaço</h2>
             <div class="gallery">
                 <div class="belt">
-                    <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F2366450%2Flg_jMHOKjH3qlnVoHLk2ZCwh-BFtIZMkQg0.jpg&h=360" alt="">
-                    <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Fpartners%2Fe4d969a0-f48b-42da-85b5-a97319669df8%2Flg_c98d23c5-d136-4ec2-9c3c-af4437f2ab1e_ImagemdoWhatsAppde20240503s12.33.098db77dde.jpg&h=360" alt="">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqFT5rDcW9zZOGlKA4L1A70P6ygCv7_kX2ZZKXQWxQ1ARMlxlTP4g2xMEsZwXGvwAmHZhTtKYrkCpaQWEdVsTM3X3UdnLdlc54hZk7CiVnIGW2fxlGHHbiOQCwaPRb459a2T9sP=s1360-w1360-h1020-rw" alt="">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npHXdk7qFQJhL_XVb31GwCqlzYUqabSpARPIK8lcOYgcKnkjPhUPs2e2glGcY4QkwRku33k4vZqJS_PrcJdfjyCV7ejwgCbCidT5QxJ3ivky2FCi7n3iu26cushwbgUyfSajhJILg=s1360-w1360-h1020-rw" alt="">
-                    <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/311645777_635782071405583_1537681119306079809_n.png?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeGVmO_1PvNRAc9J8QQFS8a3QZaan0Y0iF1BlpqfRjSIXVHb--pVnLVnZNR5Bnlq8EJT_GPw7VXB62Z_PmqGyeEO&_nc_ohc=jjiu0-HaMhoQ7kNvwEQ_GD2&_nc_oc=AdlGHN5kboKS1YtBSDtD97Ty26VQIrnRfEO8PXEyphKHaqGYvInQN_3IMN5fqsd_EO_O8v3IP0Ilza4LcfEm3dvW&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=VQGJZu939YQIuO9YvDD1fg&oh=00_AfZzAoorLHZa7quwopa8e28C76N42dZP5Q2DOILz4q0c2w&oe=68D22A25" alt="">
-                    <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/484026608_4734263186799562_4437439319883975561_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGHrfHeivVXduLy-7aFVrvyM6AxfDaeX44zoDF8Np5fjmKY781CFpanrQeoMsDNZdjaT6Gp2w13fGzYnj628_Ep&_nc_ohc=KYg_p4EWXtoQ7kNvwHPLiQH&_nc_oc=AdnBmdFbfJ3IrEQ-XaceITGbcbCFpr9vqT0Kc5RD12H0wygQ7n4krCckZDn5x3QrpaSlrw-_KBiXauFv4VR4GqmB&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=JkRWCbyruV5h0Jh0smZcbQ&oh=00_Afa_nQ134BWO4OmQ4sMzHOJXNSVBgyuuE6szGIc6iQlp0A&oe=68D22A6A" alt="">
-                    <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/484364246_4732567160302498_6697530611191947207_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeF2C9ARKuHpE38LEZSYKWiaANCRQzK7wDAA0JFDMrvAMGI9_ACDktjXztS7DbMGMN0K6GU2vrfPVekwhTdjkcPK&_nc_ohc=q0sTRcPgQlIQ7kNvwEc7F-7&_nc_oc=AdnWGGseDKjJEUW7LqCtXzOwhyYnScq6RX9BWnNtSCz2w1iHBfTLjCDrxIhcr__VXXDcv2GdeSgvHdyhwEep0uNJ&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=hspo1T9cgcboo7ojdzoVeA&oh=00_AfavIALh73VgUuqs46riIEVQy7LYv4UMO2g-t1ZqIJWMRw&oe=68D22737" alt="">
-                    <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/509292089_4851319331760613_4878976611283194917_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5bbf69&_nc_eui2=AeG9eQVRiOzdGxJ73v3RjgPPEPXX92OSQZsQ9df3Y5JBmz6dc7eXz3qqvagIGzNks0-IAMj7YBpXx7qdYDRtEouI&_nc_ohc=VYHprk7EYY8Q7kNvwElLYRJ&_nc_oc=Adkq-M7sB_3bMWkX5cKUSJp-HFydR1CWjr_hMt1fxF_IK5-LXP-j6HxQXKnZt2t8IBHXPrpKKckCctpGcUjXtzvq&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=JGB-g8rOGvonBXBDf4_FjA&oh=00_AfZtT9WJtkLl9xEb4dgEHoyJTDaLAsa6dgUXkROK87JTlA&oe=68D249C7" alt="">
-                    <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/464012586_4591427877749761_3617235501543595253_n.png?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFJF727j0HkiZPnaUOyc-U7huRqrutYDLeG5Gqu61gMt-SFFt955wwjGqex6sNl63o-E4sUGlOY-FGxOICOrM09&_nc_ohc=VCmGsXHNMpIQ7kNvwGUmmGC&_nc_oc=AdkV0bzvAq26_IQr5X-B33G-KxRvODKyCfOwPql5cWJMMea1o-3zI_TjDzAog27pldIk9_bpWYf4kmzgMEQ4PXbM&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=LK1rR3HxvaworPQprGafMw&oh=00_AfZ76zGYLRJN4wOzzhDA00hvIIIfyLO-u3Vn08WRi2Tzjw&oe=68D24ADC" alt="">
+                    <!-- Substitua as URLs abaixo pelas suas imagens locais se preferir -->
+                    <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F2366450%2Flg_jMHOKjH3qlnVoHLk2ZCwh-BFtIZMkQg0.jpg&h=360"
+                        alt="">
+                    <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Fpartners%2Fe4d969a0-f48b-42da-85b5-a97319669df8%2Flg_c98d23c5-d136-4ec2-9c3c-af4437f2ab1e_ImagemdoWhatsAppde20240503s12.33.098db77dde.jpg&h=360"
+                        alt="">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqFT5rDcW9zZOGlKA4L1A70P6ygCv7_kX2ZZKXQWxQ1ARMlxlTP4g2xMEsZwXGvwAmHZhTtKYrkCpaQWEdVsTM3X3UdnLdlc54hZk7CiVnIGW2fxlGHHbiOQCwaPRb459a2T9sP=s1360-w1360-h1020-rw"
+                        alt="">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npHXdk7qFQJhL_XVb31GwCqlzYUqabSpARPIK8lcOYgcKnkjPhUPs2e2glGcY4QkwRku33k4vZqJS_PrcJdfjyCV7ejwgCbCidT5QxJ3ivky2FCi7n3iu26cushwbgUyfSajhJILg=s1360-w1360-h1020-rw"
+                        alt="">
                 </div>
             </div>
         </section>
     </main>
+
+
+    <!-- Promo full-width image before footer -->
+    <section class="promo">
+        <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/509419142_4850226991869847_29286229675206267_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHpZzEnk39vNkgXmzdoI--fVJjOBSIcTDtUmM4FIhxMO_9071L7iN5Is_RjOutpgWG5uhyVk3y2MbdmA583kpSj&_nc_ohc=EWkUKpM6A_UQ7kNvwHh77di&_nc_oc=AdmWgbhrrHL4sAsDLJFR9rFm2j2Su9-cvDe0P2Pod9evCcRJn1c_FAtC-Mj1yCbSl-xJ8a2ZvpM2AVH9UePdo61f&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=rxsHR9-SAnyOPdsovxcSRw&oh=00_AfbaGGRo6g8IW6nYltRBZrFb01RfovV3Zd8rBKODF8a8Dg&oe=68D2501B" alt="Imagem de divulgação" class="promo-img">
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -631,19 +677,18 @@
                 <small>© <span id="yr"></span> Todos os direitos reservados.</small>
             </div>
             <div class="social">
-                <a href="https://www.instagram.com/zewsfitacademia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram"><img src="img/inst.png"
-                        alt=""></a>
+                <a href="https://www.instagram.com/zewsfitacademia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank" aria-label="Instagram"><img src="img/inst.png" alt=""></a>
                 <a href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp"><img src="img/wpp.png"
                         alt=""></a>
                 <a href="https://maps.app.goo.gl/WVyUimPeSZgsa3716" target="_blank" aria-label="Localização"><img
                         src="img/loca.png" alt=""></a>
-                
             </div>
         </div>
     </footer>
 
     <script>
-        // Year
+        // Ano
         document.getElementById('yr').textContent = new Date().getFullYear();
 
         /* Carousel */
@@ -651,13 +696,34 @@
         const track = carousel.querySelector('.track');
         const slides = Array.from(track.children);
         const dotsEl = carousel.querySelector('.dots');
+        const midImage = carousel.querySelector('.mid-image');
+
+        // aplica fundos a partir de data-bg
+        slides.forEach((s) => {
+            const bg = s.getAttribute('data-bg');
+            if (bg) { s.style.setProperty('--bg', `url('${bg}')`); s.style.setProperty('backgroundImage', ''); s.querySelector('h3').setAttribute('aria-live', 'polite'); s.style.position = 'relative'; s.style.color = '#fff'; s.style.textAlign = 'center'; s.style.padding = '0 12px'; s.style.zIndex = 2; s.style.isolation = 'isolate'; s.style.setProperty('--x', '1'); s.style.setProperty('--y', '1'); s.style.setProperty('--z', '1'); s.style.setProperty('--a', '1'); s.style.setProperty('--b', '1'); s.style.setProperty('--c', '1'); }
+            // seta no pseudo-elemento
+            s.style.setProperty('--bg-url', bg || '');
+            s.style.setProperty('background', 'transparent');
+            s.style.setProperty('position', 'relative');
+            const before = document.createElement('style');
+            before.innerHTML = `.slide[data-bg="${bg}"]::before{background-image:url("${bg}");}`;
+            document.head.appendChild(before);
+        });
+
         let index = 0;
         slides.forEach((_, i) => {
-            const d = document.createElement('button'); d.className = 'dot' + (i === 0 ? ' active' : ''); d.addEventListener('click', () => go(i));
+            const d = document.createElement('button');
+            d.className = 'dot' + (i === 0 ? ' active' : '');
+            d.addEventListener('click', () => go(i));
             dotsEl.appendChild(d);
         });
         const dots = Array.from(dotsEl.children);
-        function go(i) { index = (i + slides.length) % slides.length; track.style.transform = `translateX(-${index * 100}%)`; dots.forEach((d, k) => d.classList.toggle('active', k === index)); }
+        function go(i) {
+            index = (i + slides.length) % slides.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d, k) => d.classList.toggle('active', k === index));
+        }
         carousel.querySelector('[data-prev]').onclick = () => go(index - 1);
         carousel.querySelector('[data-next]').onclick = () => go(index + 1);
         setInterval(() => go(index + 1), 4200);
@@ -668,7 +734,7 @@
         }, { threshold: .15 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-        /* VER PLANOS collapsible: hides entire section including heading */
+        /* VER PLANOS toggle */
         const btnPlanos = document.getElementById('btnPlanos');
         const planosSection = document.getElementById('planos-section');
         function togglePlans(forceOpen) {
@@ -678,7 +744,6 @@
             if (open) { planosSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         }
         btnPlanos.addEventListener('click', () => togglePlans());
-        // optional: open if hash #planos is present
         if (location.hash === '#planos') togglePlans(true);
     </script>
 </body>
