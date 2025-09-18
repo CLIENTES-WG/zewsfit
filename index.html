@@ -501,6 +501,80 @@
             border-radius: 16px;
             box-shadow: 0 8px 22px rgba(0, 0, 0, .45)
         }
+
+        /* Mobile tweaks */
+        @media (max-width: 480px) {
+            .container {
+                padding: 14px;
+            }
+
+            .logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .logo img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .nav {
+                gap: 8px;
+            }
+
+            .cta .btn {
+                padding: 8px 10px;
+                font-size: 0.95rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(22px, 7vw, 28px);
+            }
+
+            .lead {
+                font-size: 0.95rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat strong {
+                font-size: 1rem;
+            }
+
+            .carousel {
+                height: 220px;
+            }
+
+            .cards {
+                gap: 12px;
+            }
+
+            .card {
+                padding: 14px;
+            }
+
+            .gallery img {
+                height: 140px;
+            }
+
+            .promo {
+                margin: 24px 0;
+            }
+
+            .social a {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+            }
+
+            .social img {
+                width: 22px;
+                height: 22px;
+            }
+        }
     </style>
 </head>
 
@@ -540,15 +614,18 @@
             <div class="reveal">
                 <!-- Carousel REVEAL com imagens por trás do texto + imagem central customizável -->
                 <div class="carousel" id="carousel">
-                   
+
                     <div class="track">
-                        <div class="slide" data-bg="https://invexo.com.br/blog/wp-content/uploads/2022/12/smartfit-academias-na-barra-da-tijuca-rio-de-janeiro-1024x576.jpg.webp">
+                        <div class="slide"
+                            data-bg="https://invexo.com.br/blog/wp-content/uploads/2022/12/smartfit-academias-na-barra-da-tijuca-rio-de-janeiro-1024x576.jpg.webp">
                             <h3>Estrutura moderna e completa.</h3>
                         </div>
-                        <div class="slide" data-bg="https://barcelonasuperficies.com.br/wp-content/uploads/2018/10/o-que-fazer-para-garantir-um-bom-relacionamento-com-o-aluno-da-academia.jpg">
+                        <div class="slide"
+                            data-bg="https://barcelonasuperficies.com.br/wp-content/uploads/2018/10/o-que-fazer-para-garantir-um-bom-relacionamento-com-o-aluno-da-academia.jpg">
                             <h3>Acompanhamento profissional.</h3>
                         </div>
-                        <div class="slide" data-bg="https://imgs.jusbr.com/publications/images/aa134116ac6e934ba40d05a4b5b759b6">
+                        <div class="slide"
+                            data-bg="https://imgs.jusbr.com/publications/images/aa134116ac6e934ba40d05a4b5b759b6">
                             <h3>Resultados reais.</h3>
                         </div>
                     </div>
@@ -666,7 +743,8 @@
 
     <!-- Promo full-width image before footer -->
     <section class="promo">
-        <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/509419142_4850226991869847_29286229675206267_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHpZzEnk39vNkgXmzdoI--fVJjOBSIcTDtUmM4FIhxMO_9071L7iN5Is_RjOutpgWG5uhyVk3y2MbdmA583kpSj&_nc_ohc=EWkUKpM6A_UQ7kNvwHh77di&_nc_oc=AdmWgbhrrHL4sAsDLJFR9rFm2j2Su9-cvDe0P2Pod9evCcRJn1c_FAtC-Mj1yCbSl-xJ8a2ZvpM2AVH9UePdo61f&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=rxsHR9-SAnyOPdsovxcSRw&oh=00_AfbaGGRo6g8IW6nYltRBZrFb01RfovV3Zd8rBKODF8a8Dg&oe=68D2501B" alt="Imagem de divulgação" class="promo-img">
+        <img src="https://scontent.fcgb1-1.fna.fbcdn.net/v/t39.30808-6/509419142_4850226991869847_29286229675206267_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHpZzEnk39vNkgXmzdoI--fVJjOBSIcTDtUmM4FIhxMO_9071L7iN5Is_RjOutpgWG5uhyVk3y2MbdmA583kpSj&_nc_ohc=EWkUKpM6A_UQ7kNvwHh77di&_nc_oc=AdmWgbhrrHL4sAsDLJFR9rFm2j2Su9-cvDe0P2Pod9evCcRJn1c_FAtC-Mj1yCbSl-xJ8a2ZvpM2AVH9UePdo61f&_nc_zt=23&_nc_ht=scontent.fcgb1-1.fna&_nc_gid=rxsHR9-SAnyOPdsovxcSRw&oh=00_AfbaGGRo6g8IW6nYltRBZrFb01RfovV3Zd8rBKODF8a8Dg&oe=68D2501B"
+            alt="Imagem de divulgação" class="promo-img">
     </section>
 
     <!-- Footer -->
